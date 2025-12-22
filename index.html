@@ -53,8 +53,12 @@
     </header>
     <!--First section-->
 
-  <section class="flex justify-center py-0 px-0 bg-black">
-  <div class="w-full  bg-green-950 shadow-2xl overflow-hidden">
+  <section class=" relative w-full flex justify-center py-0 px-0 bg-black">
+    <div class="absolute inset-0">
+        <img src="/b2.png" class="w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-green-950/30"></div>
+      </div>
+  <div class=" relative z-10 w-full  shadow-2xl overflow-hidden">
 
     <!-- HEADER IMAGE -->
 <div class="  w-full
@@ -68,43 +72,76 @@
 
 
      style="
-       background-image: url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&q=80&w=800');
+       background-image: url(/b3.png);
     
-       clip-path: inset(0% 0% 0% 0% round 0px 0px 55px 40px);
+       clip-path: inset(0% 0% 0% 0% round 0px 0px 100px 100px);
      ">
+    
 </div>
-   <div class="text-center">
-  <h2 class="font-bold  text-1xl text-yellow-400 m-0">Breakfast</h2>
-  <h2 class="font-semibold text-1xl text-yellow-400  mb-4">ቁርስ</h2>
-  <div id="breakfast-list" class="max-w-md mx-auto px-2"></div>
+ <div class="text-center">
+      <p class="font-bold text-2xl text-yellow-400  ">Breakfast</p>
+        <p class="font-bold text-2xl text-yellow-400 leading-sung">& Sandwiches</p>
+        
+        <p class="font-semibold text-[18px] text-yellow-400 mb-3">ቁርስ እና ሳንዱች</p>
+     </div>
+     <div class="grid grid-cols-2 gap-4">
+   <div >
+  <h2 class="font-bold mx-auto px-2  text-1xl text-yellow-400 m-0">Breakfast</h2>
+  <h2 class="font-semibold mx-auto px-2 text-1xl text-yellow-400  mb-1">ቁርስ</h2>
+  <div id="breakfast-list" class="max-w-md mx-auto px-2 mb-8"></div>
+</div>
+ <div class="text-center">
+  <h2 class="font-bold  text-1xl text-yellow-400 m-0">Sandwiches</h2>
+  <h2 class="font-semibold text-1xl text-yellow-400  mb-1">ሳንዱች</h2>
+  <div id="sandwiches-list" class="max-w-md mx-auto px-2 mb-8"></div>
 </div>
 
     </section>
     <script>
       const breakFastFoodItems=[
-        
-  { name1: "Fleato  Tips", name2: "ጭቅና ጥብስ", price: 450 },
-      { name1: "Specal Bean Full ", name2: "እስፔሻል ፉል", price: 165 },
+         
+        { name1: "Bean Full", name2: "ፉል", price: 120 },
+        { name1: "Specal Bean Full ", name2: "እስፔሻል ፉል", price: 165 },
         {
           name1: "Egg With Tomato Souce",
           name2: "እንቁላል በቲማቲም ስልስ",
-          price: 185,
+          price: 175,
         },
-        { name1: "Fried Egg", name2: "የተጠበሰ እንቁላል", price: 175 },
-        { name1: "Scrambled Egg", name2: " እንቁላል ፍርፍር", price: 185 },   
+       
+        { name1: "Scrambled Egg", name2: " እንቁላል ፍርፍር", price: 165 },
+        { name1: "Specal Omelette", name2: " እስፔሻል ኦምሌት ", price: 215 },
+         { name1: "Omelette", name2: " ኦምሌት ", price: 180 },
+        { name1: "Egg With Meat", name2: " እንቁላል በስጋ ", price: 245 },
+        
+        { name1: "Fetira ", name2: " ፈጢራ ", price: 177 },
+        {
+          name1: " Specal Fetira ",
+          name2: "እስፔሻል  ፈጢራ  ",
+          price: 277,
+        },
+        
+      
+        { name1: "Specal Chechbesa", name2: " እስፔሻል ጨጨብሳ", price: 195 },
+        
+        { name1: "Hay with butter ", name2: " ድርቆሽ በቅቤ", price: 183 },
+        
+        { name1: "Injera Scrambled with butter", name2: " እንጀራ ፍርፍር በቅቤ", price: 145 },
       ];
+
+    
+ 
       function renderMenuItems(items,containerId){
         const container=document.getElementById(containerId);
-        container.innerHtml="";
+        container.innerHTML="";
         items.forEach((item)=>{
           const div=document.createElement("div");
           div.className="flex items-start justify-between gap-2 py-0.5  border-b border-white/30";
           div.innerHTML=`
           <div>
-<h2 class=" text-yellow-400 text-sm font-medium leading-tight">${item.name1}</h2>
-<p class="text-yellow-400 text-xs leading-tight ">${item.name2}</p>
+<h3 class=" text-yellow-400 text-xs font-semibold leading-sung">${item.name1}</h3>
+<p class="text-yellow-400 text-[10px] leading-sung ">${item.name2}</p>
             </div>
- <p class="text-yellow-400 text-sm font-bold whitespace-nowrap">${item.price}</p>         
+ <p class="text-yellow-400 text-xs font-semibold whitespace-nowrap">${item.price}</p>         
           `;
           container.appendChild(div);
         })
